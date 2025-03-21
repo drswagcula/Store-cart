@@ -1,4 +1,7 @@
+// App.jsx
 import React, { useState } from 'react';
+import ProductList from './components//ProductList';
+import ShoppingCart from './components//ShoppingCart';
 import './App.css';
 
 const ProduceStore = () => {
@@ -70,41 +73,14 @@ const ProduceStore = () => {
     <div className="container">
       <h1>Produce Store</h1>
       <div className="store-layout">
-        <div className="products">
-          <h2>Products</h2>
-          <ul className="product-list">
-            {produceItems.map((item) => (
-              <li key={item.id} className="product-item">
-                <span className="product-name">{item.name}</span> - ${item.price.toFixed(2)}
-                <button className="add-button" onClick={() => addToCart(item)}>
-                  Add
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="cart">
-          <h2>Cart</h2>
-          <ul className="cart-items">
-            {Object.values(cart).map((cartItem) => (
-              <li key={cartItem.item.id} className="cart-item">
-                <span className="cart-item-name">{cartItem.item.name}</span> - ${cartItem.item.price.toFixed(2)} x{cartItem.quantity} = ${getItemTotal(cartItem)}
-                <button className="remove-button" onClick={() => removeFromCart(cartItem.item.id)}>
-                  Remove
-                </button>
-              </li>
-            ))}
-          </ul>
-          {Object.keys(cart).length === 0 && <p>Cart is empty</p>}
-          {Object.keys(cart).length > 0 && (
-            <div className="cart-total">
-              <strong>Total: ${calculateTotal()}</strong>
-            </div>
-          )}
-          <button className="clear-button" onClick={clearCart}>
-            Clear Cart
-          </button>
-        </div>
+        <ProductList produceItems={produceItems} addToCart={addToCart} />
+        <ShoppingCart
+          cart={cart}
+          removeFromCart={removeFromCart}
+          clearCart={clearCart}
+          calculateTotal={calculateTotal}
+          getItemTotal={getItemTotal}
+        />
       </div>
     </div>
   );
