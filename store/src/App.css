@@ -1,0 +1,60 @@
+/* App.css */
+.container {
+  text-align: center;
+}
+
+.store-layout {
+  display: flex;
+  justify-content: center;
+}
+
+.products,
+.cart {
+  flex: 1;
+  padding: 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+  gap: 10px;
+}
+
+.product-item,
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-items {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.add-button,
+.remove-button {
+  background-color: darkgreen;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.clear-button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.cart-total {
+  margin-top: 10px;
+}
+
+.product-name,
+.cart-item-name {
+  word-wrap: break-word;
+  flex-grow: 1;
+}
